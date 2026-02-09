@@ -1,0 +1,104 @@
+\documentclass[a4paper,11pt]{book}
+
+% ============================================
+% PACKAGES
+% ============================================
+
+% Encoding and fonts
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage[variant=monotonic]{greek}
+\setotherlanguage{english}
+
+% Greek fonts - GFS Neohellenic
+\setmainfont{GFS Neohellenic}[
+  Script=Greek,
+  Ligatures=TeX
+]
+\setsansfont{GFS Neohellenic}[
+  Script=Greek,
+  Ligatures=TeX
+]
+
+% Graphics
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+\setkeys{Gin}{width=\textwidth,height=0.35\textheight,keepaspectratio}
+
+% Layout
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{float}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf}
+
+% Typography
+\usepackage{microtype}
+\usepackage[defaultlines=3,all]{nowidow}
+
+% Lists
+\usepackage{enumitem}
+\setlist{nosep}
+
+% Code
+\usepackage{verbatim}
+\usepackage{fancyvrb}
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  pdfencoding=auto,
+  psdextra
+}
+
+% Bibliography
+\usepackage[style=authoryear,backend=biber]{biblatex}
+% Add bibliography files here:
+% \addbibresource{bibliography/ch01.bib}
+
+% ============================================
+% DOCUMENT
+% ============================================
+
+\begin{document}
+
+\frontmatter
+
+\title{Ο Προγραμματισμός της Διάδρασης}
+\author{Κωνσταντίνος Χωριανόπουλος}
+\date{}
+\maketitle
+
+\tableofcontents
+
+% Preface and Introduction
+\include{chapters/pre}
+\include{chapters/intro}
+
+\mainmatter
+
+% Main chapters
+\include{chapters/ch01}
+\include{chapters/ch02}
+\include{chapters/ch03}
+\include{chapters/ch04}
+\include{chapters/ch05}
+\include{chapters/ch06}
+\include{chapters/ch07}
+\include{chapters/ch08}
+
+% Additional sections
+\include{chapters/web}
+\include{chapters/bio}
+
+\appendix
+\include{chapters/apx01}
+
+\backmatter
+
+% \printbibliography
+
+\end{document}

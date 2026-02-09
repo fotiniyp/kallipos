@@ -1,0 +1,1 @@
+((3) 0 () 0 () () (p+ #"C:\\Users\\konip\\Desktop\\kallipos\\kallipos-master\\kallipos-pollen\\template.html" . windows))

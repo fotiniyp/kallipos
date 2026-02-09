@@ -1,0 +1,416 @@
+/* ============================================
+   KALLIPOS POLLEN BOOK STYLES
+   Greek language academic book
+   ============================================ */
+
+/* CSS Variables */
+:root {
+    --font-main: 'GFS Neohellenic', Georgia, 'Times New Roman', serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'Fira Code', 'Consolas', 'Monaco', monospace;
+
+    --color-text: #2c3e50;
+    --color-text-muted: #7f8c8d;
+    --color-accent: #2980b9;
+    --color-accent-hover: #1a5276;
+    --color-bg: #ffffff;
+    --color-bg-alt: #f8f9fa;
+    --color-border: #e1e4e8;
+    --color-error: #c0392b;
+
+    --max-width: 42rem;
+    --line-height: 1.8;
+    --paragraph-spacing: 1.5rem;
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 18px;
+}
+
+body {
+    font-family: var(--font-main);
+    font-size: 1rem;
+    line-height: var(--line-height);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-main);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+h1.chapter-title {
+    font-size: 2.5rem;
+    margin-top: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-accent);
+}
+
+h2.section-title {
+    font-size: 1.75rem;
+    color: var(--color-text);
+}
+
+h3.subsection-title {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+}
+
+p {
+    margin: 0 0 var(--paragraph-spacing) 0;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+}
+
+/* Greek typography: no first-line indent after headings */
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p {
+    text-indent: 0;
+}
+
+/* Navigation */
+.book-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+}
+
+.nav-home {
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.nav-home:hover {
+    color: var(--color-accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-prev,
+.nav-next {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.nav-prev:hover,
+.nav-next:hover {
+    color: var(--color-accent-hover);
+    text-decoration: underline;
+}
+
+/* Main Content */
+.chapter-content {
+    min-height: 60vh;
+}
+
+/* Figures */
+.book-figure {
+    margin: 2.5rem 0;
+    text-align: center;
+}
+
+.book-figure img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+}
+
+.book-figure figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    text-align: center;
+}
+
+.figure-label {
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.figure-caption {
+    font-style: italic;
+}
+
+.figure-license {
+    display: block;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    color: var(--color-text-muted);
+}
+
+/* Figure References */
+.figure-ref {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.figure-ref:hover {
+    text-decoration: underline;
+}
+
+/* Epigraphs */
+.epigraph {
+    margin: 2rem 0 2.5rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 4px solid var(--color-accent);
+    background-color: var(--color-bg-alt);
+    font-style: italic;
+}
+
+.epigraph p {
+    margin: 0 0 0.75rem 0;
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+.epigraph footer {
+    text-align: right;
+    font-style: normal;
+    color: var(--color-text-muted);
+}
+
+.epigraph footer cite::before {
+    content: "— ";
+}
+
+/* Citations */
+.citation {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.citation:hover {
+    text-decoration: underline;
+}
+
+/* Footnotes */
+.footnote {
+    position: relative;
+    display: inline;
+}
+
+.fn-marker {
+    color: var(--color-accent);
+    cursor: help;
+    font-size: 0.8em;
+    vertical-align: super;
+}
+
+.fn-content {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    padding: 0.75rem;
+    max-width: 300px;
+    font-size: 0.85rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    z-index: 100;
+}
+
+.footnote:hover .fn-content {
+    display: block;
+}
+
+/* Code */
+code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: var(--color-bg-alt);
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+    border: 1px solid var(--color-border);
+}
+
+.code-block {
+    display: block;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+}
+
+.code-block code {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+/* Lists */
+ul, ol {
+    margin: 1rem 0 1.5rem 0;
+    padding-left: 2rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Links */
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Emphasis */
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: 700;
+}
+
+/* Error messages (for missing figures/quotes) */
+.error {
+    color: var(--color-error);
+    background: #ffeaea;
+    padding: 0.2em 0.5em;
+    border-radius: 3px;
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+}
+
+/* Included content */
+.included-content {
+    margin: 1.5rem 0;
+}
+
+/* Footer */
+.book-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+/* Bibliography */
+.bibliography {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--color-border);
+}
+
+.bibliography h2 {
+    font-size: 1.5rem;
+}
+
+.references {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.references li {
+    margin-bottom: 0.75rem;
+    padding-left: 0.5rem;
+}
+
+/* Print Styles */
+@media print {
+    body {
+        max-width: none;
+        font-size: 11pt;
+        padding: 0;
+    }
+
+    .book-nav,
+    .book-footer,
+    .footer-nav {
+        display: none;
+    }
+
+    h1.chapter-title {
+        page-break-before: always;
+    }
+
+    .epigraph,
+    .book-figure {
+        page-break-inside: avoid;
+    }
+
+    a {
+        color: var(--color-text);
+        text-decoration: none;
+    }
+
+    .citation::after {
+        content: " [" attr(href) "]";
+        font-size: 0.8em;
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    html {
+        font-size: 16px;
+    }
+
+    body {
+        padding: 1rem;
+    }
+
+    .book-nav {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    h1.chapter-title {
+        font-size: 2rem;
+    }
+
+    .epigraph {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
